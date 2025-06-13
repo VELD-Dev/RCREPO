@@ -1,4 +1,6 @@
 # RCEPO
+![Latest release](https://img.shields.io/github/v/release/veld-dev/RCREPO) ![Thunderstore Downloads](https://img.shields.io/thunderstore/dt/VELD/RC_REPO?logo=thunderstore&color=%2323FFB0) ![Source downloads](https://img.shields.io/github/downloads/veld-dev/RCREPO/total?logo=github)  
+
 Add Ratchet & Clank stuff to REPO as valuables, items and maps !
 
 ## Features
