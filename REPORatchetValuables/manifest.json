@@ -1,0 +1,10 @@
+{
+  "name": "R&C.E.P.O",
+  "description":  "Adds valuables, items and maps from Ratchet & Clank series to R.E.P.O !",
+  "version_number": "1.0.0",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100",
+    "Zehs-REPOLib-2.1.0"
+  ]
+  "website_url": "https://github.com/VELD-Dev/R&CEPO"
+}

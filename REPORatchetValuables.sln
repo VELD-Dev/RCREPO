@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCREPO", "REPORatchetValuables\RCREPO.csproj", "{70AA7FD9-802F-43B6-B006-46A45DCA66BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70AA7FD9-802F-43B6-B006-46A45DCA66BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70AA7FD9-802F-43B6-B006-46A45DCA66BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70AA7FD9-802F-43B6-B006-46A45DCA66BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70AA7FD9-802F-43B6-B006-46A45DCA66BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DF8BF28-C48C-4459-A462-571BCD2A8DD9}
+	EndGlobalSection
+EndGlobal
