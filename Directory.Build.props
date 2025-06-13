@@ -1,0 +1,9 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  <PropertyGroup>
+    
+    <!-- LC BepInEx plugin folder here -->
+    <REPOPluginFolder>D:\soft\Steam\steamapps\common\REPO\BepInEx\plugins</REPOPluginFolder>
+    
+  </PropertyGroup>
+</Project>

@@ -5,6 +5,15 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCREPO", "REPORatchetValuables\RCREPO.csproj", "{70AA7FD9-802F-43B6-B006-46A45DCA66BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{9C8CB701-102D-CF49-A3E0-89AC09D42C2C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
+		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

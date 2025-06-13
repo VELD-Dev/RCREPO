@@ -116,4 +116,50 @@
 
   <ProjectExtensions><VisualStudio><UserProperties manifest_1json__JsonSchema="https://raw.githubusercontent.com/VELD-Dev/schemastore/refs/heads/master/src/schemas/json/ThunderstoreManifestSchema.json" /></VisualStudio></ProjectExtensions>
 
+	
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="netcode-patch &quot;$(TargetPath)&quot; @(ReferencePathWithRefAssemblies->'&quot;%(Identity)&quot;', ' ')" />
+        <MakeDir Directories="bin/$(Configuration)/$(AssemblyName)/" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="$(ProjectDir)/README.md" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="$(ProjectDir)/manifest.json" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="$(ProjectDir)/LICENSE" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <ZipDirectory SourceDirectory="bin/$(Configuration)/$(AssemblyName)/" DestinationFile="$(LCPluginFolder)/$(AssemblyName).zip" Overwrite="true" />
+
+        <MakeDir Directories="bin/$(Configuration)/EnhancedMonstersThunderstore/BepInEx/plugins/$(AssemblyName)/" />
+        <Copy SourceFiles="$(TargetPath);$(ProjectDir)/ratchetvaluables" DestinationFolder="bin/$(Configuration)/EnhancedMonstersThunderstore/BepInEx/plugins/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="$(ProjectDir)/README.md;$(ProjectDir)/manifest.json;$(ProjectDir)/LICENSE;$(ProjectDir)/icon.png" DestinationFolder="bin/$(Configuration)/EnhancedMonstersThunderstore/" />
+        <Copy Condition="Exists('$(ProjectDir)CHANGELOG.md')" SourceFiles="$(ProjectDir)/CHANGELOG.md" DestinationFolder="bin/$(Configuration)/EnhancedMonstersThunderstore/" />
+        <ZipDirectory SourceDirectory="bin/$(Configuration)/EnhancedMonstersThunderstore/" DestinationFile="$(ProjectDir)/$(AssemblyName)Thunderstore.zip" Overwrite="true" />
+
+        <MakeDir Directories="$(LCPluginFolder)/$(AssemblyName)/" ContinueOnError="false" />
+        <Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/$(AssemblyName).dll;bin/$(Configuration)/$(AssemblyName)/ratchetvaluables" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/README.md" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/manifest.json" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/LICENSE" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+        <Exec Command="echo Successfully copied all this shit to the right folder" />
+    </Target>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<!--<Exec Command="netcode-patch &quot;$(TargetPath)&quot; @(ReferencePathWithRefAssemblies->'&quot;%(Identity)&quot;', ' ')" />-->
+		<MakeDir Directories="bin/$(Configuration)/$(AssemblyName)/" />
+		<Copy SourceFiles="$(TargetPath);$(ProjectDir)/ratchetvaluables" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(SolutionDir)/README.md" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(ProjectDir)/manifest.json" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(SolutionDir)/LICENSE" DestinationFolder="bin/$(Configuration)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<ZipDirectory SourceDirectory="bin/$(Configuration)/$(AssemblyName)/" DestinationFile="$(REPOPluginFolder)/$(AssemblyName).zip" Overwrite="true" />
+
+		<MakeDir Directories="bin/$(Configuration)/RCREPOThunderstore/BepInEx/plugins/$(AssemblyName)/" />
+		<Copy SourceFiles="$(TargetPath);$(ProjectDir)/ratchetvaluables" DestinationFolder="bin/$(Configuration)/RCREPOThunderstore/BepInEx/plugins/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(SolutionDir)/README.md;$(ProjectDir)/manifest.json;$(SolutionDir)/LICENSE;$(ProjectDir)/icon.png" DestinationFolder="bin/$(Configuration)/RCREPOThunderstore/" />
+		<Copy Condition="Exists('$(SolutionDir)CHANGELOG.md')" SourceFiles="$(SolutionDir)/CHANGELOG.md" DestinationFolder="bin/$(Configuration)/RCREPOThunderstore/" />
+		<ZipDirectory SourceDirectory="bin/$(Configuration)/RCREPOThunderstore/" DestinationFile="$(ProjectDir)/$(AssemblyName)Thunderstore.zip" Overwrite="true" />
+
+		<MakeDir Directories="$(REPOPluginFolder)/$(AssemblyName)/" ContinueOnError="false" />
+		<Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/$(AssemblyName).dll;$(ProjectDir)/ratchetvaluables" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/README.md" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/manifest.json" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="bin/$(Configuration)/$(AssemblyName)/LICENSE" DestinationFolder="$(REPOPluginFolder)/$(AssemblyName)/" SkipUnchangedFiles="true" />
+		<Exec Command="echo Successfully copied all this shit to the right folder" />
+	</Target>
+
 </Project>
